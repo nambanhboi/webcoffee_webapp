@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --color-primary: rgb(199, 78, 78);
+  --color-border: #efefef;
+  --color-bg-button: #efefef;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,17 +20,61 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+* {
+  font-size: 13px;
+}
+
+
+.card {
+  background-color: white;
+  border-radius: 1.6rem;
+  padding: 1.4rem 1.1rem;
+  margin-top: 2rem;
+  margin: 2rem;
+}
+
+.containerApp7 {
+  width: 70%;
+  margin-left: 15%;
+}
+
+.containerApp8 {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.ant-image-mask {
+  height: 97.4%;
+  margin-top: 2%;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1023px) {
+  * {
+      font-size: 15px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  * {
+      font-size: 16px;
   }
 }
