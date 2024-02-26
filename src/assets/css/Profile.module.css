@@ -1,0 +1,205 @@
+
+
+.profile_info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.highlight_story {
+    display: flex;
+    margin-left: 12%;
+}
+
+.listPosted {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.listPostSaved {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 590px)  {
+    * {
+        font-size: 10px;
+    }
+    .profile_right {
+        width: 54% !important;
+    }
+}
+
+.container_profile {
+    max-width: 80rem;
+}
+.profile {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+    .profile_avata {
+        margin-left: 5%;
+        width: 26%;
+        .img_avata {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+        }
+
+        .preAvatar {
+            border-radius: 50%;
+            height: 92%;
+            margin-top: 5%;
+        }
+    
+    }
+
+    .profile_right {
+        width: 36%;
+
+        .profile_right1 {
+            display: flex;
+            align-items: center;
+
+            .name {
+                margin-right: 2rem;
+                font-size: 2rem;
+            }
+
+            .btn_edit {
+                background-color: var(--color-bg-button);
+                border: none;
+                color: black;
+                font-weight: 600;
+                margin-right: 0.6rem;
+            }
+        }
+
+        .profile_site {
+            margin-top: 1.4rem;
+
+        }
+        .profile_site_icon {
+            font-size: 1.6rem;
+            margin: 0 0.6rem 0.7rem 0;
+        }
+    }
+}
+
+.profile_info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.intro {
+    text-align: center;
+    margin: 2rem 0;
+
+    .intro_p {
+        max-width: 70%;
+        margin-left: 15%;
+    }
+}
+
+
+.listImage {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+
+
+
+@media screen and (max-width: 767px)  {
+    * {
+        font-size: 10px;
+    }
+    .profile_right {
+        width: 54% !important;
+    }
+
+    
+}
+
+
+/* ImageGrid.css */
+/**
+.image-container {
+    display: grid;
+    gap: 20px; 
+  }
+  
+  .image {
+    width: 100%; 
+    overflow: hidden; 
+  }
+  
+  img {
+    width: 100%;
+    height: auto; 
+  }
+*/
+
+.imageEdit {
+    width: 100%;
+}
+
+.iconClose {
+    font-size: 2rem;
+    position: absolute;
+    right: 0;
+    /* color: red; */
+    cursor: pointer;
+}
+.iconClose:hover {
+    opacity: 0.5;
+    color: red;
+}
+
+.profile_story {
+    margin-top: 1.4rem;
+}
+
+
+.highlightCoffee {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 2s ease;
+
+
+    .highlightCoffee_title {
+        text-align: center;
+    }
+
+    .highlightCoffee_listcard {
+        display: flex;
+    }
+
+    .icon_sliderLeft {
+        position: absolute;
+        top: 50%;
+        z-index: 100;
+        font-size: 4rem;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+    }
+    .icon_sliderRight {
+        position: absolute;
+        top: 50%;
+        z-index: 100;
+        font-size: 4rem;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+        right: 0;
+    }
+  
+}

@@ -116,6 +116,8 @@ function Register() {
 
     const onFinish = (values) => {
         console.log("values", values);
+        const role = values["isShopCoffee"] ? "shop" : "visitor";
+        values["role"] = role
         axios.post('/auth/register', values)
         .then(res => {
             console.log(res);

@@ -6,18 +6,18 @@
     /* transition: all linear 0.3s; */
     animation: slideInLeft linear 0.5s, fadeOut linear 1s 2s forwards;
     z-index: 100000;
-    .btn-close {
-        display: none !important;
-    }
+}
+.btn-close {
+    display: none !important;
+}
 
-    .toast-body {
-        padding: 1.4rem;
-        font-size: 1.1rem;
-    }
-    .icon {
-        font-size: 1.3rem;
-        margin-right: 0.4rem;
-    }
+.toast-body {
+    padding: 1.4rem;
+    font-size: 1.1rem;
+}
+.icon {
+    font-size: 1.3rem;
+    margin-right: 0.4rem;
 }
 .success {
     color: green;

@@ -6,7 +6,7 @@ Navbar,
 Container,
     } from 'react-bootstrap';
 import styles from '@/assets/css/Header.module.css';
-import { useStore } from '@/stores';
+import { useStore, actions } from '@/stores';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { setAuthToken } from '@/ultils/axios';
@@ -34,6 +34,7 @@ function Header() {
     }
     return (
         <Navbar expand="lg" className="">
+        <button onClick={handleLogout}>danwg xuat</button>
             <Container>
                 <Navbar.Brand style={{ textAlign: 'center'}}>
                     <Link href="/">

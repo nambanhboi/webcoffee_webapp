@@ -1,10 +1,2 @@
 //index.mjs
-export { Button, 
-    Checkbox, 
-    Form, 
-    Input,
-Image,
-Alert,
-Tabs,
- Select,
- TimePicker } from 'antd';
+export { Affix, Alert, Anchor, App, AutoComplete, Avatar, BackTop, Badge, Breadcrumb, Button, Calendar, Card, Carousel, Cascader, Checkbox, Col, Collapse, ColorPicker, ConfigProvider, DatePicker, Descriptions, Divider, Drawer, Dropdown, Empty, Flex, FloatButton, Form, Grid, Image, Input, InputNumber, Layout, List, Mentions, Menu, Modal, Pagination, Popconfirm, Popover, Progress, QRCode, Radio, Rate, Result, Row, Segmented, Select, Skeleton, Slider, Space, Spin, Statistic, Steps, Switch, Table, Tabs, Tag, TimePicker, Timeline, Tooltip, Tour, Transfer, Tree, TreeSelect, Typography, Upload, Watermark, message, notification, theme, version } from 'antd';

@@ -1,0 +1,184 @@
+.head {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.videohead {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.info {
+    position: absolute;
+    top: 0;
+    /* display: flex;
+    flex-direction: column; */
+    background-color: white;
+    padding: 1rem 2rem 2rem 2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+.titleInfo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 2rem 1rem 1rem 1rem;
+}
+
+.listImage {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+
+.highlightCoffee {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 2s ease;   
+}
+.highlightCoffee_title {
+    text-align: center;
+}
+
+.highlightCoffee_listcard {
+    display: flex;
+}
+
+.icon_sliderLeft {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    font-size: 4rem;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+}
+.icon_sliderRight {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    font-size: 4rem;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    right: 0;
+}
+
+.introduction {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 4rem 10%;
+    justify-content: space-between;
+
+}
+.introduction_title {
+    width: 100%;
+    text-align: center;
+}
+
+.introduction_text {
+    width: 46%;
+    margin: 2rem 0;
+}
+.introduction_image {
+    width: 46%;
+    margin: 2rem 0;
+
+}
+.intro_img {
+    width: 80%;
+    height: 20rem;
+}
+.introduction_image2 {
+    text-align: end;
+}
+.introduction_text1 {
+    text-align: end;
+}
+
+.report {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.report_title {
+    width: 100%;
+}
+
+.report_icon {
+    font-size: 2.4rem;
+    margin: auto;
+}
+
+.report1, .report2, .report3 {
+    width: 32%;
+    border: 1px solid var(--color-border);
+    padding: 1rem 3rem;
+}
+
+.useful {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+
+    
+    
+}
+.usefulCard {
+    border: 1px solid var(--color-border);
+    padding: 1rem;
+    width: 26%;
+    box-shadow: 0px 10px 51px -3px rgba(0,0,0,0.15);
+    border-radius: 1rem;
+    min-width: 18rem;
+    margin-bottom: 2rem;
+}
+
+.titleSearch {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.listShop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.noData {
+    margin-bottom: 3rem;
+}
+.iconReturn {
+    position: absolute;
+    font-size: 3rem;
+    top: 18%;
+    cursor: pointer;
+    left: 32px;
+    background-color: var(--color-border);
+    border-radius: 50%;
+    padding: 8px;
+}
+.iconReturn:hover {
+    opacity: 0.7;
+}
+
+
+@media screen and (max-width: 590px)  {
+    .report1, .report2, .report3 {
+        padding: 1rem 0 0 0 !important;
+    }
+
+    
+}
+
+
