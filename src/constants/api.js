@@ -8,6 +8,7 @@ export const api = {
     GET_LIST_SHOP_SAVED: "/save/getListShopSaved",
     GET_HIGHLIGHT_SHOP: "/shop/getlistHighlightShop",
     GET_LIST_IMAGE: "/shop/getListImage",
+    SEARCH_SHOP: "/shop/searchShop",
     //site
     GET_ALL_PROVINCEID: "/site/getAllProvince",
     GET_ALL_DISTRICT_BY_PROVINCEID: "/site/getAllDistrictByProvinceId",

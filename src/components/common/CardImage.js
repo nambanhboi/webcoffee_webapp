@@ -10,12 +10,17 @@ import { AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 import { IoBookmark } from "react-icons/io5";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { useState } from "react";
+import { useStore } from "@/stores";
 function CardImage({imgName, title, address, statusLike, shopId, statusSave, maxw}) {
-
+  var {state, showToast} = useStore();
   const {Meta} = Card
     const [StatusLike, setStatusLike] = useState(statusLike);
     const [StatusSave, setStatusSave] = useState(statusSave);
     const handleLike = async () => {
+      if(state.isAuth == null) {
+        showToast("Vui lòng đăng nhập để tiếp tục!", "info");
+        return;
+      }
         console.log(shopId);
         await axios.post("/like/likeShop", {shopId})
         .then(res => {
@@ -30,6 +35,10 @@ function CardImage({imgName, title, address, statusLike, shopId, statusSave, max
     }
 
     const handleSave = async () => {
+      if(state.isAuth == null) {
+        showToast("Vui lòng đăng nhập để tiếp tục!", "info");
+        return;
+      }
         console.log(shopId);
         await axios.post("/save/saveShop", {shopId})
         .then(res => {
@@ -50,7 +59,8 @@ function CardImage({imgName, title, address, statusLike, shopId, statusSave, max
           border: 'none',
           margin: '0.5rem',
           maxWidth: (maxw ? `${maxw}%` :'46%'),
-          minWidth: '30%' }}
+          minWidth: '30%',
+        textAlign: "center" }}
           cover={
             <Image src={`${urlApi}/uploads/${imgName}`}
                 style={{margin: '0.4rem 0', height: '30rem'}}

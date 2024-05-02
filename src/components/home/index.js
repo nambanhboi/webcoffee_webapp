@@ -128,9 +128,6 @@ function Home() {
     const [listShop, setListShop] = useState([]);
 
     //
-    const onFinish = () => {
-
-    }
 
 
     // slide
@@ -181,14 +178,10 @@ function Home() {
     }, []);
 
 
-    const handleSearch = async () => {
-        const postData = {
-            regionIdSearch,
-            nameShopCoffeeSearch
-        }
+    const handleSearch = async (values) => {
+        console.log(values);
         setIsSearch(true)
-        console.log("regionIdSearch: ", postData);
-        await axios.post('/shop/searchShop', postData)
+        await axios.post(api.SEARCH_SHOP, values)
         .then(res => {
             console.log(res)
             if(res.data.success) {
@@ -205,7 +198,7 @@ function Home() {
             <div className={styles.head}>
                 <video className={styles.videohead} src="/video/footer.mp4" loop autoPlay muted type="video/mp4"></video>      
                 <div className={styles.info}>
-                    <h2 className={styles.titleInfo}>Tìm kiếm view đẹp cho hôm nay</h2>
+                    <h2 className={styles.titleInfo} >Tìm kiếm view đẹp cho hôm nay</h2>
                     <Form
                         className={styles.form}
                         form={form}
@@ -222,7 +215,7 @@ function Home() {
                         initialValues={{
                             remember: true,
                         }}
-                        onFinish={onFinish}
+                        onFinish={handleSearch}
                         autoComplete="off"
                     >
                         <Form.Item
@@ -289,7 +282,7 @@ function Home() {
             {!isSearch ? (
                 <>
                      <div className={styles.report_title + " container"} style={{ textAlign: 'center', margin: '4rem auto 1rem auto'}}>
-                        <h1>Sợt Coffee</h1>
+                        <h1 style={{fontSize: '2rem'}}>Sợt Coffee</h1>
                         <p>Chào mừng đến với trang web tìm kiếm quán cà phê - nơi dành cho những người yêu thích hương vị của cà phê và không gian đặc biệt. Chúng tôi là nguồn thông tin tin cậy giúp bạn khám phá và trải nghiệm những quán cà phê đa dạng, từ những nơi mang phong cách hiện đại đến những không gian lịch sự và thư giãn.</p>
                     </div>
                     <div className={styles.listImage}>
@@ -324,7 +317,7 @@ function Home() {
                     </div>
                     <div className={styles.report + " containerApp8"}>
                         <div className={styles.report_title}>
-                            <h2>Giới thiệu</h2>
+                            <h2 style={{fontSize: '2rem'}}>Giới thiệu</h2>
                             <p>Trang web tìm kiếm quán coffee số 1</p>
                         </div>
                         <div className={styles.report1}>
@@ -346,7 +339,7 @@ function Home() {
 
                     <div className={styles.highlightCoffee}>
                         <div className={styles.highlightCoffee_title + " containerApp8"}>
-                            <h2>Các quán coffee nổi bật</h2>
+                            <h2 style={{fontSize: '2rem'}}>Các quán coffee nổi bật</h2>
                             <p>Với việc chọn lựa tỉ mỉ từng chi tiết trang trí, mỗi quán cà phê mang đến cho bạn một trải nghiệm thị giác độc đáo. Bức tranh, tác phẩm điêu khắc hay thậm chí là những bức ảnh độc đáo - mọi thứ đều được sắp xếp một cách tinh tế để tạo nên một không gian đầy cảm hứng.</p>
                         </div>
                         <div className={styles.highlightCoffee_listcard}
@@ -369,7 +362,7 @@ function Home() {
                     </div>
 
                     <div className={styles.report_title + " containerApp8"} style={{ textAlign: 'center', margin: '4rem auto 1rem auto'}}>
-                            <h2>Cà Phê Hà Nội</h2>
+                            <h2 style={{fontSize: '2rem'}}>Cà Phê Hà Nội</h2>
                             <p> Khám Phá và Chia Sẻ Khoảnh Khắc Cùng Trang Web Tìm Kiếm Quán Cà Phê</p>
                         </div>
                     <div className={styles.useful + " containerApp8"}>
@@ -393,7 +386,7 @@ function Home() {
 
                     <div className={styles.introduction}>
                         <div className={styles.introduction_title}>
-                            <h2>Giới thiệu</h2>
+                            <h2 style={{fontSize: '2rem'}}>Giới thiệu</h2>
                             <p>Trang web tìm kiếm quán coffee số 1</p>
                         </div>
                         <div className={styles.introduction_image}>
@@ -418,7 +411,7 @@ function Home() {
                         <GiReturnArrow className={styles.iconReturn} 
                             onClick={() => setIsSearch(false)}
                         />
-                        <h1 className={styles.titleSearch}>Kết quả tìm kiếm</h1>
+                        <h1 className={styles.titleSearch} style={{fontSize: '2rem'}}>Kết quả tìm kiếm</h1>
                     </div>
                     <br />
                     {listShop.length > 0 ? (

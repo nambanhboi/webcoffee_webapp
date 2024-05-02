@@ -10,11 +10,17 @@ import { AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 import { IoBookmark } from "react-icons/io5";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { useState } from "react";
+import { useStore } from "@/stores";
 function CardProduct({id, imgName, title, description, price, shopId, handleAddToCart}) {
+    var {state, showToast} = useStore()
     const [open, setOpen] = useState(false);
     const {Meta} = Card
     
     const handleAddProToCart = () => {
+        if(state.isAuth == null) {
+            showToast("Vui lòng đăng nhập để tiếp tục!", "info");
+            return;
+          }
         handleAddToCart(id)
     }
     return (

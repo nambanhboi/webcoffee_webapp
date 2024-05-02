@@ -148,8 +148,8 @@ function ManageUser() {
         })
     }
     return (
-        <div className="container">
-            <h1 style={{textAlign: 'center', margin: '2rem'}}>Quản lý người dùng</h1>
+        <div className="containerApp9">
+            <h1 style={{textAlign: 'center', margin: '2rem', fontSize: '2rem'}}>Quản lý người dùng</h1>
             <ModalAddUser getData={getData}/>
             <Popconfirm
                     title="Xóa người dùng"

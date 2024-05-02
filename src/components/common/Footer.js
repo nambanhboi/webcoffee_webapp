@@ -1,4 +1,3 @@
-"use client";
 import { Button, Container,
 Form
     } from "react-bootstrap";
@@ -11,11 +10,11 @@ AiOutlineGoogle,
 AiOutlinePhone,
 AiOutlineMail } from 'react-icons/ai';
 import Link from "next/link";
-import styles from '@/assets/css/Footer.module.css';
+import styles from "@/assets/css/Footer.module.css";
 function Footer() {
     return (
         <div className={styles.footer}>
-            <video src='/video/footer.mp4' loop autoPlay muted type="video/mp4"></video>
+            <video style={{ width: "100%", height: "20rem", objectFit: "cover"}} src='/video/footer.mp4' loop autoPlay muted type="video/mp4"></video>
             <Container className={styles.info}>
                 <Form className={styles.contactwu}>
                     <Form.Group className={styles.formemail} controlId="formGroupEmail">
@@ -26,7 +25,7 @@ function Footer() {
                         <FiSend />
                     </Button>
                 </Form>
-                <div className={styles.block + styles.card}>
+                <div className={styles.block}>
                     <div className={styles.introduction_footer}>
                         <span className={styles.title_footer}>Giới thiệu</span>
                         <p>Discover our extensive collection of stylish and high-quality footwear for every occasion at our online shoe store. Step into fashion and comfort with us today!</p>

@@ -3,10 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .info {
     position: absolute;
     top: 0;
+    margin: 2rem 0;
 }
 .contactwu {
     display: flex;
@@ -16,6 +18,8 @@
 .label {
     color: white;
     font-weight: 600;
+    text-align: center;
+    margin: auto
 }
 .button {
     min-width: 50%;
@@ -68,8 +72,8 @@
 }
 .block {
     display: flex;
-    flex-direction: row;
-
+    width: 80%;
+    margin: auto;
 }
 .introduction-footer {
     max-width: 30%;
@@ -81,4 +85,8 @@
 
 .help {
     min-width: 20%;
+}
+
+.aboutus {
+    min-width: 16%;
 }

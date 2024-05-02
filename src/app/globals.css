@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base;
+@tailwind components; */
+/* @tailwind utilities; */
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -29,16 +29,19 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
-@layer utilities {
+/* @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
 
 * {
   font-size: 13px;
 }
 
+body {
+  margin: 0;
+}
 
 .card {
   background-color: white;

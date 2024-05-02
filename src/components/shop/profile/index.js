@@ -272,7 +272,7 @@ function ProfileShop() {
                 
                 <div className={styles.profile_history + ' containerApp9'}>
                     <Tabs
-                        defaultActiveKey="product"
+                        defaultActiveKey="saved"
                         id="fill-tab-example"
                         className="mb-3"
                         variant="underline"                        

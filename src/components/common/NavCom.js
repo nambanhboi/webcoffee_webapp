@@ -1,7 +1,8 @@
-"use client"
+// "use client"
 import React, { useEffect, useState } from "react";
 
 import styles from '@/assets/css/Header.module.css';
+
 import { Menu } from "@/components/base";
 import { useStore, actions } from '@/stores';
 import { useRouter } from 'next/navigation';
@@ -10,7 +11,7 @@ import  { urlApi } from '@/constants/config';
 import { BsCart3 } from "react-icons/bs";
 import Link from "next/link";
 function NavCom() {
-    const { state, dispatch } = useStore();
+    const { state, dispatch, showToast } = useStore();
     const router = useRouter();
     const [isAuth, setIsAuth] = useState(null);
     const [auth, setAuth] = useState(null);
@@ -29,31 +30,26 @@ function NavCom() {
         dispatch(actions.logout());
         router.push('/login', { scroll: false });
     }
-    const items = [
+    const itemsAdmin = [
         {
-            label: 'Quản lý người dùng',
+            label: (<Link href='/manage/user'>Quản lý người dùng</Link>),
             key: 'manageUser'
         },
         {
             label: (
-                <Link href='/user/cart'><BsCart3 /></Link>              
+                <Link href='/user/cart' style={{display: 'flex'}}><BsCart3 style={{fontSize: '1.6rem',
+                    marginTop: '0.5rem'}} /> Giỏ hàng</Link>              
             ),
             key: 'cart'
         },
         {
             label: (
                 <>
-                    { isAuth != null ? (
+                    { isAuth != null && (
                         <div className={styles.username}>
                             <img src={`${urlApi}/uploads/${auth.avatar}`} className={styles.avata} alt=''/>
                             <span>{auth.username}</span>
                         </div>
-                    ) : (
-                        <>                      
-                            <Link href='/register'>Đăng ký</Link>
-                            /
-                            <Link href='/login'>Đăng nhập</Link>
-                        </>
                     )}
                 </>           
             ),
@@ -61,16 +57,83 @@ function NavCom() {
             children: [
                 {
                     label: (
-                        <Link href='/profile'>Trang cá nhân</Link>
+                        <span onClick={handleLogout}>Đăng xuất</span>
+                    ),
+                },
+            ],
+        },
+    ]; 
+    const itemsShop = [
+        {
+            label: (<Link href='/shop/manage-product'>Quản lý sản phẩm</Link>),
+            key: 'manageProduct'
+        },
+        {
+            label: (<Link href='/shop/manage-order'>Quản lý đơn hàng</Link>),
+            key: 'manageOrder'
+        },
+        {
+            label: (
+                <Link href='/user/cart' style={{display: 'flex'}}><BsCart3 style={{fontSize: '1.6rem',
+                    marginTop: '0.5rem'}} /> Giỏ hàng</Link>              
+            ),
+            key: 'cart'
+        },
+        {
+            label: (
+                <>
+                    { isAuth != null && (
+                        <div className={styles.username}>
+                            <img src={`${urlApi}/uploads/${auth.avatar}`} className={styles.avata} alt=''/>
+                            <span>{auth.username}</span>
+                        </div>
+                    )}
+                </>           
+            ),
+            key: 'user',
+            children: [
+                {
+                    label: (
+                        <Link href='/user/profile'>Trang cá nhân</Link>
                     ),
                 },
                 {
                     label: (
-                        <>
-                            { isAuth == "admin" && (
-                                <Link href='/manage/user'>Quản lý người dùng</Link>
-                            )}
-                        </>
+                        <Link href='/shop/profile'>Trang quán</Link>
+                    ),
+                },
+                {
+                    label: (
+                        <span onClick={handleLogout}>Đăng xuất</span>
+                    ),
+                },
+            ],
+        },
+    ];
+    const itemsUser = [
+        {
+            label: (
+                <Link href='/user/cart' style={{display: 'flex'}}><BsCart3 style={{fontSize: '1.6rem',
+                    marginTop: '0.5rem'}} /> Giỏ hàng</Link>              
+            ),
+            key: "cart"
+        },
+        {
+            label: (
+                <>
+                    { isAuth != null && (
+                        <div className={styles.username}>
+                            <img src={`${urlApi}/uploads/${auth.avatar}`} className={styles.avata} alt=''/>
+                            <span>{auth.username}</span>
+                        </div>
+                    )}
+                </>           
+            ),
+            key: 'user',
+            children: [
+                {
+                    label: (
+                        <Link href='/user/profile'>Trang cá nhân</Link>
                     ),
                 },
                 {
@@ -81,6 +144,30 @@ function NavCom() {
             ],
         },
     ];  
+
+    const itemsNoUser = [
+        {
+            label: (
+                <span onClick={() => showToast("Vui lòng đăng nhập để tiếp tục!", "info")} style={{display: 'flex'}}><BsCart3 style={{fontSize: '1.6rem',
+                    marginTop: '0.5rem'}} /> Giỏ hàng</span>              
+            ),
+            key: 'cart'
+        },
+        {
+            label: (
+                <Link href='/login'>Đăng nhập</Link>              
+            ),
+            key: 'login'
+        },
+        {
+            label: (
+                <Link href='/register'>Đăng ký</Link>              
+            ),
+            key: 'register'
+        },
+    ]
+    
+
     const [current, setCurrent] = useState('mail');
     const onClick = (e) => {
         setCurrent(e.key);
@@ -90,8 +177,7 @@ function NavCom() {
             <Link href="/">
                 <img src='/image/logo.jfif' alt="" className={styles.logo}/>
             </Link> 
-            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} className={styles.nav} />
-            
+            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={isAuth == 'admin' ? itemsAdmin : (isAuth == 'shop' ? itemsShop : (isAuth == 'visitor' ? itemsUser : itemsNoUser))} className={styles.nav} />           
         </>
     )
 }

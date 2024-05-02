@@ -1,10 +1,9 @@
 .imgLeft {
-    width: 110%;
-    height: 90vh;
+    width: 60%;
 }
 
 .form {
-    /* width: 30%; */
+    width: 40%;
     padding: 2rem 3rem;
     box-shadow:
     5px 5px 10px rgba(0, 0, 0, 0.1),   /* Top left corner */

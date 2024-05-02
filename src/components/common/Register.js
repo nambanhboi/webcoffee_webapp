@@ -138,7 +138,7 @@ function Register() {
     };
 
     return (
-        <div className='flex'>
+        <div style={{display: "flex"}}>
             <div className={styles.imgLeft}>            
                 <img style={{width: '100%', height: "100%"}}
                     src="/image/auth.jfif" />
@@ -152,10 +152,6 @@ function Register() {
                 }}
                 wrapperCol={{
                     span: 24,
-                }}
-                style={{
-                    width: '50%'
-
                 }}
                 initialValues={{
                     remember: true,
