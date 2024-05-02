@@ -66,47 +66,19 @@
     height: 47rem;
     object-fit: cover;
 }
+.block {
+    display: flex;
+    flex-direction: row;
 
-
-@media only screen and (min-width: 601px) and (max-width: 1023px) {
-    .block {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .introduction_footer {
-        max-width: 50%;
-    }
-
-    .contact {
-        max-width: 50%;
-    }
-
-    .help {
-        min-width: 50%;
-    }
-    
-    .video {
-        height: 35rem;
-    }
 }
-@media only screen and (min-width: 1024px) {
-    .block {
-        display: flex;
-        flex-direction: row;
-    }   
-    .introduction_footer {
-        max-width: 30%;
-    }
+.introduction-footer {
+    max-width: 30%;
+}
 
-    .contact {
-        max-width: 30%;
-    }
+.contact {
+    max-width: 30%;
+}
 
-    .help {
-        min-width: 20%;
-    }    
-    .video {
-        height: 30rem;
-    }
+.help {
+    min-width: 20%;
 }

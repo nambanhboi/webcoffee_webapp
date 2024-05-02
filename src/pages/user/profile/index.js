@@ -1,4 +1,4 @@
-import Profile from '@/components/profile'
+import Profile from '@/components/user/profile'
 import React from 'react'
 
 const index = () => {

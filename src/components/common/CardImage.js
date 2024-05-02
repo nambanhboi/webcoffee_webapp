@@ -10,14 +10,14 @@ import { AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 import { IoBookmark } from "react-icons/io5";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { useState } from "react";
-function CardImage({imgName, title, address, statusLike, shopId, statusSaved}) {
+function CardImage({imgName, title, address, statusLike, shopId, statusSave, maxw}) {
 
   const {Meta} = Card
     const [StatusLike, setStatusLike] = useState(statusLike);
-    const [StatusSaved, setStatusSaved] = useState(statusSaved);
+    const [StatusSave, setStatusSave] = useState(statusSave);
     const handleLike = async () => {
         console.log(shopId);
-        await axios.post("/shop/likeShop", {shopId})
+        await axios.post("/like/likeShop", {shopId})
         .then(res => {
             console.log(res);
             if(res.data.success) {
@@ -31,11 +31,11 @@ function CardImage({imgName, title, address, statusLike, shopId, statusSaved}) {
 
     const handleSave = async () => {
         console.log(shopId);
-        await axios.post("/shop/saveShop", {shopId})
+        await axios.post("/save/saveShop", {shopId})
         .then(res => {
             console.log(res);
             if(res.data.success) {
-                setStatusSaved(!StatusSaved)
+                setStatusSave(!StatusSave)
             }
         })
         .catch(err => {
@@ -46,10 +46,10 @@ function CardImage({imgName, title, address, statusLike, shopId, statusSaved}) {
     return (
         <Card
         style={{ 
-          width: '20rem', 
+          width: (maxw ? `${maxw}%` :'20rem'), 
           border: 'none',
           margin: '0.5rem',
-          maxWidth: '46%',
+          maxWidth: (maxw ? `${maxw}%` :'46%'),
           minWidth: '30%' }}
           cover={
             <Image src={`${urlApi}/uploads/${imgName}`}
@@ -61,14 +61,14 @@ function CardImage({imgName, title, address, statusLike, shopId, statusSaved}) {
               {StatusLike ? <AiFillHeart style={{color: 'red', fontSize: "1.6rem", cursor: "pointer"}} onClick={handleLike}/> : <AiOutlineHeart onClick={handleLike} style={{fontSize: "1.6rem", cursor: "pointer"}}/>} 
             </>,
             <>
-              {StatusSaved ? <IoBookmark onClick={handleSave} style={{fontSize: "1.6rem", cursor: "pointer"}}/> : <IoBookmarkOutline onClick={handleSave} style={{fontSize: "1.6rem", cursor: "pointer"}}/>}                
+              {StatusSave ? <IoBookmark onClick={handleSave} style={{fontSize: "1.6rem", cursor: "pointer"}}/> : <IoBookmarkOutline onClick={handleSave} style={{fontSize: "1.6rem", cursor: "pointer"}}/>}                
             </>,
           ]}
         >
         <Meta
           title={
             (
-              <Link href={`/profile/${shopId}`} className="link">
+              <Link href={`/shop/profile/${shopId}`} className="link">
                   {title}              
               </Link>
             )

@@ -14,7 +14,7 @@ import imgIntro1 from '@/assets/image/intro1.jpg';
 import { useEffect, useState } from "react";
 import { urlApi } from "@/constants/config";
 import {Form, Select, Input, Button, Image, Empty} from '@/components/base/index.mjs';
-
+import { api } from '@/constants/api';
 function Home() {
     const [form] = Form.useForm();
     const {Option} = Select;
@@ -25,7 +25,7 @@ function Home() {
     const [listCommuneId, setListCommuneId] = useState([]);
 
     const getProvince = () => {
-        axios.get('/site/getAllProvince')
+        axios.get(api.GET_ALL_PROVINCEID)
         .then(res => {
             if(res.data.success) {
                 setListProvinceId(res.data.result);
@@ -36,7 +36,7 @@ function Home() {
         })
     }
     const getDistrict = (id) => {
-        axios.get(`/site/getAllDistrictByProvinceId?province_id=${id}`)
+        axios.get(`${api.GET_ALL_DISTRICT_BY_PROVINCEID}?province_id=${id}`)
         .then(res => {
             if(res.data.success) {
                 setListDistrictId(res.data.result);
@@ -48,7 +48,7 @@ function Home() {
     }
 
     const getCommune = (id) => {
-        axios.get(`/site/getAllCommuneByDistrictId?district_id=${id}`)
+        axios.get(`${api.GET_ALL_COMMUNE_BY_DISTRICTID}?district_id=${id}`)
         .then(res => {
             if(res.data.success) {
                 setListCommuneId(res.data.result);
@@ -358,7 +358,7 @@ function Home() {
                                         title={shop.username}
                                         address={shop.address}    
                                         statusLike={shop.statusLike} 
-                                        statusSaved={shop.statusSaved}  
+                                        statusSave={shop.statusSave}  
                                         shopId={shop.shopId}
                                     />
                                 ))}
